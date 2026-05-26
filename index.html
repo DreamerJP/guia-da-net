@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guia da Net | Guia simples para usar melhor sua conexão</title>
+  <meta name="description" content="Guia educacional em português sobre Wi-Fi, roteador, IPTV, cabo de rede, velocidade e termos comuns da internet residencial.">
+  <meta name="theme-color" content="#faf5ec">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+
+  <link rel="stylesheet" href="./assets/styles.css?v=1">
+  <script src="./assets/app.js?v=1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="stage">
+    <div class="container">
+
+      <header class="header">
+        <div class="header-row">
+          <button class="iconbtn" type="button" data-menu-toggle aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
+            <i class="ph ph-list"></i>
+          </button>
+          <a class="wordmark" href="./" data-link aria-label="Guia da Net, página inicial">
+            <em>guia</em>danet<span class="dot">.</span>
+          </a>
+          <button class="iconbtn" type="button" data-search-toggle aria-label="Buscar">
+            <i class="ph ph-magnifying-glass"></i>
+          </button>
+        </div>
+      </header>
+
+      <main id="conteudo" data-app tabindex="-1">
+        <section class="loading" aria-live="polite">
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Carregando…</p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="wordmark-l"><em>guia</em> da net<span class="dot">.</span></div>
+        <p>Guia 100% independente e livre de propagandas. Conteúdo claro e direto para resolver dúvidas de internet residencial sem enrolação.</p>
+        <div class="footer-links">
+          <a href="./" data-link>Início</a>
+          <a href="./buscar" data-link>Buscar</a>
+        </div>
+        <div class="footer-meta">
+          <span>© 2026</span>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- DRAWER -->
+  <div class="drawer-scrim" data-drawer-scrim></div>
+  <aside class="drawer" id="drawer" data-drawer aria-hidden="true" aria-label="Menu de navegação">
+    <div class="drawer-head">
+      <span class="wordmark"><em>guia</em>danet<span class="dot">.</span></span>
+      <button class="iconbtn" type="button" data-menu-close aria-label="Fechar menu">
+        <i class="ph ph-x"></i>
+      </button>
+    </div>
+    <nav class="drawer-body" data-drawer-nav aria-label="Categorias"></nav>
+    <div class="drawer-foot">
+      Guia da Net — Respostas rápidas para sua internet.
+    </div>
+  </aside>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" type="button" data-back-to-top aria-label="Voltar ao topo">
+    <i class="ph ph-arrow-up"></i>
+  </button>
+
+  <!-- TOAST -->
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+</body>
+</html>

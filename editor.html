@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editor de Artigos | Guia da Net</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+
+  <link rel="stylesheet" href="./assets/styles.css?v=1">
+  <link rel="stylesheet" href="./assets/editor.css?v=1">
+  <script src="./assets/editor.js?v=1" defer></script>
+</head>
+<body class="editor-body">
+
+  <header class="editor-top">
+    <div class="editor-top-inner">
+      <a class="editor-brand" href="./index.html">
+        <span class="wordmark"><em>guia</em>danet<span class="dot">.</span></span>
+        <span class="editor-brand-tag">editor</span>
+      </a>
+      <div class="editor-top-meta">
+        <span class="editor-top-hint"><i class="ph ph-info"></i>Ferramenta local — nada é enviado.</span>
+        <a class="editor-back" href="./index.html"><i class="ph ph-arrow-left"></i>Voltar ao site</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="editor-tabs" role="tablist" aria-label="Ferramentas do editor">
+    <button class="editor-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-article" data-tab="article">
+      <i class="ph ph-file-text"></i>Artigo
+    </button>
+    <button class="editor-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-index" data-tab="index">
+      <i class="ph ph-list-numbers"></i>Destaques
+    </button>
+  </div>
+
+  <main class="editor-main">
+
+    <!-- ARTIGO -->
+    <section class="editor-panel is-active" id="panel-article" role="tabpanel" aria-labelledby="tab-article">
+      <div class="editor-layout">
+
+        <aside class="editor-sidebar">
+          <div class="editor-sidebar-head">
+            <p class="kicker terra">novo artigo</p>
+            <h1>Dados do <em>artigo</em></h1>
+          </div>
+
+          <div class="field">
+            <label for="article-title">Título</label>
+            <input id="article-title" type="text" autocomplete="off" placeholder="Ex.: Como reiniciar o roteador">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="article-category">Categoria</label>
+              <select id="article-category">
+                <option value="wifi">Wi-Fi e Roteador</option>
+                <option value="cabo-de-rede">Cabo de Rede</option>
+                <option value="iptv">IPTV</option>
+                <option value="velocidade">Velocidade e Qualidade</option>
+                <option value="dispositivos">Dispositivos</option>
+                <option value="glossario">Glossário</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="article-date">Publicação</label>
+              <input id="article-date" type="date">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="article-slug">URL do artigo <small>auto-gerada do título</small></label>
+            <input id="article-slug" type="text" autocomplete="off" placeholder="como-reiniciar-o-roteador">
+          </div>
+
+          <div class="field">
+            <label for="article-description">Resumo</label>
+            <textarea id="article-description" rows="4" placeholder="Frase curta que aparece nos cards da home."></textarea>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="article-minutes">Min de leitura</label>
+              <input id="article-minutes" type="number" min="1" step="1" placeholder="3">
+            </div>
+            <div class="field">
+              <label for="article-icon">Ícone Phosphor</label>
+              <input id="article-icon" type="text" placeholder="wifi-high" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="article-keywords">Palavras-chave</label>
+            <input id="article-keywords" type="text" placeholder="wifi, roteador, sinal">
+          </div>
+
+          <div class="editor-actions">
+            <button class="ed-btn" type="button" data-new-article><i class="ph ph-file-plus"></i>Novo</button>
+            <button class="ed-btn" type="button" data-open-article><i class="ph ph-folder-open"></i>Abrir HTML</button>
+            <button class="ed-btn primary" type="button" data-save-article><i class="ph ph-floppy-disk"></i>Salvar HTML</button>
+            <button class="ed-btn" type="button" data-save-article-as><i class="ph ph-floppy-disk-back"></i>Salvar como…</button>
+          </div>
+          <input class="visually-hidden" id="article-file" type="file" accept=".html,text/html">
+          <p class="editor-status" data-article-status></p>
+
+          <details class="editor-hint">
+            <summary><i class="ph ph-question"></i>Como funciona o salvamento</summary>
+            <p>Em navegadores Chromium recentes, este editor abre e grava o arquivo HTML diretamente no seu computador. Em outros casos, ele baixa o arquivo e você coloca em <code>content/articles/&lt;categoria&gt;/&lt;slug&gt;.html</code>.</p>
+          </details>
+        </aside>
+
+        <section class="editor-workspace">
+
+          <div class="ed-toolbar" role="toolbar" aria-label="Formatação">
+            <div class="ed-toolbar-group">
+              <button type="button" title="Título (H2)" data-format="h2"><span class="ed-type-h2">H<span>2</span></span></button>
+              <button type="button" title="Subtítulo (H3)" data-format="h3"><span class="ed-type-h3">H<span>3</span></span></button>
+              <button type="button" title="Parágrafo" data-format="p"><i class="ph ph-paragraph"></i></button>
+            </div>
+
+            <div class="ed-toolbar-sep" aria-hidden="true"></div>
+
+            <div class="ed-toolbar-group">
+              <button type="button" title="Negrito" data-command="bold"><i class="ph-bold ph-text-b"></i></button>
+              <button type="button" title="Itálico" data-command="italic"><i class="ph-bold ph-text-italic"></i></button>
+              <button type="button" title="Link" data-command="link"><i class="ph ph-link"></i></button>
+              <button type="button" title="Lista" data-command="insertUnorderedList"><i class="ph ph-list-bullets"></i></button>
+              <button type="button" title="Lista numerada" data-command="insertOrderedList"><i class="ph ph-list-numbers"></i></button>
+              <button type="button" title="Citação" data-format="blockquote"><i class="ph ph-quotes"></i></button>
+            </div>
+
+            <div class="ed-toolbar-sep" aria-hidden="true"></div>
+
+            <div class="ed-toolbar-group">
+              <button type="button" title="Box de destaque" data-insert="callout"><i class="ph ph-lightbulb"></i></button>
+              <button type="button" title="Box de atenção" data-insert="attention"><i class="ph ph-warning"></i></button>
+              <button type="button" title="Passo a passo" data-insert="steps"><i class="ph ph-list-numbers"></i></button>
+              <button type="button" title="Imagem" data-insert="image"><i class="ph ph-image"></i></button>
+              <button type="button" title="YouTube" data-insert="youtube"><i class="ph ph-youtube-logo"></i></button>
+              <button type="button" title="Divisor" data-insert="hr"><i class="ph ph-minus"></i></button>
+            </div>
+          </div>
+
+          <div class="ed-canvas">
+            <div class="rich-editor article-content" id="article-content" contenteditable="true" spellcheck="true">
+              <h2>Escreva o título da primeira seção aqui</h2>
+              <p>E aqui um parágrafo. Use a barra acima para formatar o texto, adicionar listas, imagens ou blocos especiais.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <!-- DESTAQUES -->
+    <section class="editor-panel" id="panel-index" role="tabpanel" hidden aria-labelledby="tab-index">
+      <div class="editor-index">
+        <div class="editor-index-head">
+          <div>
+            <p class="kicker terra">destaques da home</p>
+            <h1>Índice e <em>destaques</em></h1>
+            <p class="editor-index-sub">Abra <code>content/articles.json</code>, ajuste quais artigos aparecem em destaque e em que ordem, e salve.</p>
+          </div>
+          <div class="editor-actions">
+            <button class="ed-btn" type="button" data-open-manifest><i class="ph ph-folder-open"></i>Abrir índice</button>
+            <button class="ed-btn" type="button" data-upsert-current><i class="ph ph-plus"></i>Adicionar artigo atual</button>
+            <button class="ed-btn primary" type="button" data-save-manifest><i class="ph ph-floppy-disk"></i>Salvar índice</button>
+            <button class="ed-btn" type="button" data-download-manifest><i class="ph ph-download-simple"></i>Baixar</button>
+          </div>
+          <input class="visually-hidden" id="manifest-file" type="file" accept=".json,application/json">
+        </div>
+
+        <div class="manifest-list" data-manifest-list>
+          <p class="empty-editor-state"><i class="ph ph-folder-simple-dashed"></i>Nenhum índice carregado ainda. Clique em <strong>Abrir índice</strong>.</p>
+        </div>
+        <p class="editor-status" data-manifest-status></p>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+</body>
+</html>

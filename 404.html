@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Guia da Net — redirecionando</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // GitHub Pages SPA fallback: redirect any deep URL to the shell with ?p=<path>
+    (function () {
+      var basePath = '/guia-da-net/'; // GitHub Pages project URL
+      var location = window.location;
+      var pathAfterBase = location.pathname.indexOf(basePath) === 0
+        ? location.pathname.slice(basePath.length)
+        : location.pathname.replace(/^\/+/, '');
+      var target = basePath + '?p=' + encodeURIComponent('/' + pathAfterBase + location.search + location.hash);
+      window.location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecionando…</p>
+</body>
+</html>

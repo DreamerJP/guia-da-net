@@ -1,0 +1,11 @@
+# Editor temp files
+*.swp
+*.swo
+*~
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Node (caso use no futuro)
+node_modules/
