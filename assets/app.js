@@ -21,6 +21,14 @@
   var manifest = null;
   var toastTimer = null;
 
+  // Fix initial relative links in the HTML shell using the dynamic basePath
+  document.querySelectorAll('a[data-link]').forEach(function (link) {
+    var href = link.getAttribute('href');
+    if (href && href.indexOf('./') === 0) {
+      link.setAttribute('href', basePath + href.slice(2));
+    }
+  });
+
   // ----------------------------------------------------------
   // Utils
   // ----------------------------------------------------------
