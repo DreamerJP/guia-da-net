@@ -616,6 +616,51 @@ h1.display em{font-style:italic;color:var(--ink-soft)}
   text-align:center;margin-top:8px;font-style:italic;
 }
 
+/* TABLES */
+.simple-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 28px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.simple-table th,
+.simple-table td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--line-soft);
+}
+.simple-table tbody th,
+.simple-table tr th:not(thead th) {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--surface-warm);
+  width: 32%;
+}
+.simple-table thead th {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--surface-warm);
+  border-bottom: 1px solid var(--line-strong);
+  font-size: 15px;
+  width: auto;
+}
+.simple-table tr:last-child th,
+.simple-table tr:last-child td {
+  border-bottom: 0;
+}
+.simple-table tbody tr:hover {
+  background: var(--surface-warm);
+}
+
 /* CONTENT BLOCKS (callouts) */
 .article-content .callout{
   margin:28px 0;padding:18px 20px;
@@ -634,7 +679,16 @@ h1.display em{font-style:italic;color:var(--ink-soft)}
 }
 .article-content .callout .icon i{font-size:18px}
 .article-content .callout .content{flex:1}
-.article-content .callout strong{display:block;font-family:var(--serif);font-weight:500;font-size:15px;color:var(--ink);margin-bottom:4px;letter-spacing:-.005em}
+.article-content .callout > strong:first-child,
+.article-content .callout .content > strong:first-child {
+  display:block;
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:15px;
+  color:var(--ink);
+  margin-bottom:4px;
+  letter-spacing:-.005em;
+}
 .article-content .callout p{font-size:14px;line-height:1.55}
 .article-content .callout p:first-child{margin-top:0}
 
@@ -652,7 +706,15 @@ h1.display em{font-style:italic;color:var(--ink-soft)}
 }
 .article-content .attention .icon i{font-size:18px}
 .article-content .attention .content{flex:1}
-.article-content .attention strong{display:block;font-family:var(--serif);font-weight:500;font-size:15px;color:var(--terracotta-deep);margin-bottom:4px}
+.article-content .attention > strong:first-child,
+.article-content .attention .content > strong:first-child {
+  display:block;
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:15px;
+  color:var(--terracotta-deep);
+  margin-bottom:4px;
+}
 .article-content .attention p{font-size:14px;line-height:1.55;color:var(--ink-soft)}
 .article-content .attention p:first-child{margin-top:0}
 
